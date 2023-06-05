@@ -16,3 +16,23 @@ public:
 	void tambahPenerbit(penerbit*);
 	void cetakPenerbit();
 };
+
+class penerbit {
+public:
+	string nama;;
+	vector<pengarang*> daftar_pengarang;
+
+	penerbit(string pNama) :nama(pNama) {
+		cout << "Penerbit \"" << nama << "\" ada\n";
+	}
+	~penerbit() {
+		cout << "Penerbit \"" << nama << "\" tidak ada\n";
+	}
+
+	void tambahPengarang(pengarang*);
+	void cetakPengarang();
+};
+
+void pengarang::tambahPenerbit(penerbit* pPenerbit) {
+	daftar_penerbit.push_back(pPenerbit);
+}
