@@ -86,6 +86,12 @@ int main() {
 	pengarang* varPengarang2 = new pengarang("Lia");
 	pengarang* varPengarang3 = new pengarang("Giga");
 	pengarang* varPengarang4 = new pengarang("Asroni");
+	buku* varBuku1 = new buku("Fisika");
+	buku* varBuku2 = new buku("Algoritma");
+	buku* varBuku3 = new buku("Basisdata");
+	buku* varBuku4 = new buku("Dasar Pemrograman");
+	buku* varBuku5 = new buku("Matematika");
+	buku* varBuku6 = new buku("Matematika 1");
 
 	varPenerbit1->tambahPengarang(varPengarang1);
 	varPenerbit1->tambahPengarang(varPengarang2);
@@ -94,10 +100,14 @@ int main() {
 	varPenerbit2->tambahPengarang(varPengarang4);
 	varPengarang3->tambahPenerbit(varPenerbit1);
 	varPengarang3->tambahPenerbit(varPenerbit2);
+	varBuku1->tambahPengarang(varPengarang1);
+	varBuku2->tambahPengarang(varPengarang1);
 
 	varPenerbit1->cetakPengarang();
 	varPenerbit2->cetakPengarang();
 	varPengarang3->cetakPenerbit();
+	varBuku1->cetakPengarang();
+	varBuku2->cetakPengarang();
 
 	return 0;
 }
