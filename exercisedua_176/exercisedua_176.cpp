@@ -55,13 +55,49 @@ void penerbit::cetakPengarang() {
 	cout << endl;
 }
 
+class buku {
+public:
+	string nama;
+	vector<pengarang*> daftar_pengarang;
+	buku(string pNama) :nama(pNama) {
+		cout << "Buku \"" << nama << "\" ada\n";
+	}
+	~buku() {
+		cout << "Buku \"" << nama << "\" tidak ada\n";
+	}
+	void tambahPengarang(pengarang*);
+	void cetakPengarang();
+};
+void buku::tambahPengarang(pengarang* pPengarang) {
+	daftar_pengarang.push_back(pPengarang);
+}
+void buku::cetakPengarang() {
+	cout << "daftar buku dari pengarang \"" << this->nama << "\":\n";
+	for (auto& a : daftar_pengarang) {
+		cout << a->nama << "\n";
+	}
+	cout << endl;
+}
+
 int main() {
 	penerbit* varPenerbit1 = new penerbit("Gama Press");
+	penerbit* varPenerbit2 = new penerbit("Intan Perwira");
 	pengarang* varPengarang1 = new pengarang("Joko");
 	pengarang* varPengarang2 = new pengarang("Lia");
 	pengarang* varPengarang3 = new pengarang("Giga");
+	pengarang* varPengarang4 = new pengarang("Asroni");
 
 	varPenerbit1->tambahPengarang(varPengarang1);
 	varPenerbit1->tambahPengarang(varPengarang2);
 	varPenerbit1->tambahPengarang(varPengarang3);
+	varPenerbit2->tambahPengarang(varPengarang3);
+	varPenerbit2->tambahPengarang(varPengarang4);
+	varPengarang3->tambahPenerbit(varPenerbit1);
+	varPengarang3->tambahPenerbit(varPenerbit2);
+
+	varPenerbit1->cetakPengarang();
+	varPenerbit2->cetakPengarang();
+	varPengarang3->cetakPenerbit();
+
+	return 0;
 }
