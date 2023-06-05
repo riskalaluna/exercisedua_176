@@ -37,7 +37,7 @@ void pengarang::tambahPenerbit(penerbit* pPenerbit) {
 	daftar_penerbit.push_back(pPenerbit);
 }
 void pengarang::cetakPenerbit() {
-	cout << "daftar Pengarang pada penerbit \"" << this->nama << "\":\n";
+	cout << "Daftar Penerbit yang diikuti \"" << this->nama << "\":\n";
 	for (auto& a : daftar_penerbit) {
 		cout << a->nama << "\n";
 	}
@@ -48,7 +48,7 @@ void penerbit::tambahPengarang(pengarang* pPengarang) {
 	pPengarang->tambahPenerbit(this);
 }
 void penerbit::cetakPengarang() {
-	cout << "Daftar penerbit dari pengarang \"" << this->nama << "\":\n";
+	cout << "Daftar pengarang dari penerbit \"" << this->nama << "\":\n";
 	for (auto& a : daftar_pengarang) {
 		cout << a->nama << "\n";
 	}
@@ -57,22 +57,25 @@ void penerbit::cetakPengarang() {
 
 class buku {
 public:
-	string nama;
+	string nama;;
 	vector<pengarang*> daftar_pengarang;
+
 	buku(string pNama) :nama(pNama) {
-		cout << "Buku \"" << nama << "\" ada\n";
+		cout << "Penerbit \"" << nama << "\" ada\n";
 	}
 	~buku() {
-		cout << "Buku \"" << nama << "\" tidak ada\n";
+		cout << "Penerbit \"" << nama << "\" tidak ada\n";
 	}
+
 	void tambahPengarang(pengarang*);
 	void cetakPengarang();
 };
+
 void buku::tambahPengarang(pengarang* pPengarang) {
 	daftar_pengarang.push_back(pPengarang);
 }
 void buku::cetakPengarang() {
-	cout << "daftar buku dari pengarang \"" << this->nama << "\":\n";
+	cout << "Daftar pengarang buku \"" << this->nama << "\":\n";
 	for (auto& a : daftar_pengarang) {
 		cout << a->nama << "\n";
 	}
@@ -102,12 +105,20 @@ int main() {
 	varPengarang3->tambahPenerbit(varPenerbit2);
 	varBuku1->tambahPengarang(varPengarang1);
 	varBuku2->tambahPengarang(varPengarang1);
+	varBuku3->tambahPengarang(varPengarang2);
+	varBuku4->tambahPengarang(varPengarang4);
+	varBuku5->tambahPengarang(varPengarang3);
+	varBuku6->tambahPengarang(varPengarang3);
 
 	varPenerbit1->cetakPengarang();
 	varPenerbit2->cetakPengarang();
 	varPengarang3->cetakPenerbit();
 	varBuku1->cetakPengarang();
 	varBuku2->cetakPengarang();
+	varBuku3->cetakPengarang();
+	varBuku4->cetakPengarang();
+	varBuku5->cetakPengarang();
+	varBuku6->cetakPengarang();
 
 	return 0;
 }
